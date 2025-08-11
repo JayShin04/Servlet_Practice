@@ -26,11 +26,23 @@ public class Test07Controller extends HttpServlet {
                 "   <body>");
         if (address.contains("서울시")) {
             out.println("" +
-                    "   <h3>"+address+"</h3>");
+                    "   <h3>"+address+" 배달 준비중</h3>");
         } else {
             out.println("" +
                     "   <h3>배달 불가 지역입니다.</h3>");
         }
+        out.println("<hr>");
+        if (card.equals("신한카드")) {
+            out.println("" +
+                    "   <div>결제 불가 카드입니다.</div>");
+        } else {
+            out.println("" +
+                    "   <div>결제금액 : " + price + "원</div>");
+        }
+
+        out.println("" +
+                "   </body>" +
+                "</html>");
 
     }
 }
