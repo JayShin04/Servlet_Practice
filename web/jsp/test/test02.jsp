@@ -25,7 +25,7 @@
 
     <div class="container">
         <h1>BMI 측정 결과</h1>
-        <div class="fs-1">당신은 <span class="text-primary"><%= resultString %></span>입니다.</div>
+        <div class="display-4">당신은 <span class="text-info"><%= resultString %></span>입니다.</div>
         <h4>BMI 수치 : <%=BMI%></h4>
     </div>
 </body>
