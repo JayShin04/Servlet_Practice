@@ -1,0 +1,17 @@
+#wrap {
+    width:1200px;
+    margin: 0 auto
+}
+header {
+    height:100px;
+}
+.nav {
+    height:40px;
+}
+
+/*section {*/
+/*    height:800px;*/
+/*}*/
+footer {
+    height:40px;
+}
