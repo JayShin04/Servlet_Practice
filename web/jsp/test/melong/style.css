@@ -1,0 +1,35 @@
+#wrap {
+    width:1200px;
+    margin: 0 auto;
+}
+header > .logo {
+    height:150px;
+}
+header > .search {
+    height:150px;
+}
+.main-menu > .singerInfo {
+    height:200px;
+}
+.singerInfo > .singerPhoto {
+    width:200px;
+    height:200px;
+}
+
+.singerInfo > .singerDetail {
+
+}
+.musicInfo {
+    height:300px;
+}
+.musicInfo > .musicPhoto {
+    width:300px;
+    height:300px;
+}
+
+.lyrics {
+    height:60px;
+}
+footer {
+    height:100px;
+}
