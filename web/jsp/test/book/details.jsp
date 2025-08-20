@@ -2,12 +2,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <%
@@ -55,29 +56,11 @@
             }
         };
         list.add(map);
-        String id = request.getParameter("id");
+//        int id = Integer.parseInt(request.getParameter("id"));
     %>
     <div id="wrap">
-        <div class="d-flex">
-            <div class="imageSection">
-                <%
-                    for (Map<String, Object> book:list) {
-                        if(book.get("id") == id) {
-                %>
-                <img src="<%=book.get("image")%>" width="200">
-                <% } }%>
-            </div>
-            <div class="section2">
-                <%
-                    for (Map<String, Object> book:list) {
-                        if(book.get("id") == id) {
-                %>
-                <div class="display-3 text-dark font-weight-bold"><%=book.get("title")%></div>
-                <div class="display-2 text-info"><%=book.get("author")%></div>
-                <div class="display-1 text-info"><%=book.get("publisher")%></div>
-                <% } }%>
-            </div>
-        </div>
+        <div class="imageFileSection"></div>
+        <div class="detailTextSection"></div>
     </div>
 </body>
 </html>
