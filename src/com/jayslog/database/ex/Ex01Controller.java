@@ -1,6 +1,6 @@
 package com.jayslog.database.ex;
 
-import com.mysql.cj.jdbc.Driver;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+
 
 public class Ex01Controller extends HttpServlet {
 
@@ -22,7 +23,7 @@ public class Ex01Controller extends HttpServlet {
 
         try {
             // Database 접속
-            DriverManager.registerDriver(new Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 
             // 접속 정보 준비
             // 서버 접속 주소, 포트, 사용할 데이터베이스, 사용자 이름, 비밀번호
@@ -40,7 +41,12 @@ public class Ex01Controller extends HttpServlet {
             // 조회된 결과 다루기
             ResultSet resultSet = statement.executeQuery(query);
 
+            resultSet.next();
+            String title = resultSet.getString("title");
+            int price = resultSet.getInt("price");
+            String description = resultSet.getString("description");
 
+            out.println("제목 : " + title + "가격 : " + price + " 설명 : " + description);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
