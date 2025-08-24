@@ -51,6 +51,21 @@ public class Ex01Controller extends HttpServlet {
 
             statement.close();
 
+            // INSERT도 해보기
+            query = "INSERT INTO used_goods (seller_id, title, price, description) " +
+                    "VALUES (3, '고양이 간식 팝니다', 5000, '저희 고양이가 입맛이 까다로워서 안먹어요 ㅠㅠ')";
+            statement = connection.createStatement();
+
+            // INSERT, UPDATE, DELETE
+            // 실행된 행의 개수
+            int count = statement.executeUpdate(query);
+            out.println("실행 결과 : " + count);
+            statement.close();
+
+
+            connection.close();
+
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
