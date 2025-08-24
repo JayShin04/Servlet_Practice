@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-
+@WebServlet("/db/ex/ex01")
 public class Ex01Controller extends HttpServlet {
 
     @Override
@@ -41,12 +41,15 @@ public class Ex01Controller extends HttpServlet {
             // 조회된 결과 다루기
             ResultSet resultSet = statement.executeQuery(query);
 
-            resultSet.next();
-            String title = resultSet.getString("title");
-            int price = resultSet.getInt("price");
-            String description = resultSet.getString("description");
+            while(resultSet.next()) {
+                String title = resultSet.getString("title");
+                int price = resultSet.getInt("price");
+                String description = resultSet.getString("description");
+                out.println("제목 : " + title + " 가격 : " + price + " 설명 : " + description);
+            }
 
-            out.println("제목 : " + title + "가격 : " + price + " 설명 : " + description);
+
+            statement.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
