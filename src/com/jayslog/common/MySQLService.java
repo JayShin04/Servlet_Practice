@@ -25,6 +25,21 @@ public class MySQLService {
         return true;
     }
 
+    //INSERT, DELETE, UPDATE 수행 기능
+    public int update(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            int count = statement.executeUpdate(query);
+            statement.close();
+            return count;
+        } catch (SQLException e) {
+            return -1;
+        }
+    }
+
+
+
+
     // select 쿼리 수행 기능
     public List<Map<String, Object>> select(String query) {
         try {
